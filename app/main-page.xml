@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="Medication Reminder" class="bg-blue-500 text-white">
+        <ActionItem tap="{{ onAddMedication }}" ios.position="right" android.position="actionBar">
+            <Label text="+" class="text-2xl p-2" />
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout rows="auto, *">
+        <Button text="Add New Medication" tap="{{ onAddMedication }}" 
+                class="bg-blue-500 text-white p-4 m-4 rounded-lg text-lg" 
+                accessibilityLabel="Add new medication button" 
+                row="0" />
+
+        <ListView items="{{ medications }}" row="1" class="list-group" separatorColor="#ccc">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *, auto" class="p-4 bg-white m-2 rounded-lg">
+                    <Image src="{{ image }}" width="60" height="60" class="rounded-full" col="0" />
+                    <StackLayout col="1" class="ml-4">
+                        <Label text="{{ name }}" class="text-lg font-bold" />
+                        <Label text="{{ dosage }}" class="text-gray-600" />
+                        <Label text="{{ frequency }}" class="text-gray-500" />
+                    </StackLayout>
+                    <Button text="Options" tap="{{ $parent.onMedicationOptions }}" 
+                            class="bg-gray-200 p-2 rounded" col="2" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

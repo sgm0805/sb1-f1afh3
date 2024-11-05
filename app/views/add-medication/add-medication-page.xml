@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Add Medication" class="bg-blue-500 text-white">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Button text="🎤 Use Voice Input" tap="{{ startVoiceInput }}" 
+                    class="bg-purple-500 text-white p-4 m-2 rounded-lg" />
+            
+            <Button text="📸 Scan Medicine Label" tap="{{ scanMedicineLabel }}" 
+                    class="bg-green-500 text-white p-4 m-2 rounded-lg" />
+
+            <TextField hint="Medication Name" text="{{ name }}" 
+                      class="input p-4 m-2 border rounded" />
+            
+            <TextField hint="Dosage (e.g., 1 pill)" text="{{ dosage }}" 
+                      class="input p-4 m-2 border rounded" />
+            
+            <Label text="Frequency" class="text-lg font-bold m-2" />
+            <ListPicker items="{{ frequencies }}" selectedIndex="{{ selectedFrequencyIndex }}" 
+                       class="m-2" />
+
+            <Label text="Time of Day" class="text-lg font-bold m-2" />
+            <TimePicker hour="{{ hour }}" minute="{{ minute }}" 
+                       class="m-2" />
+
+            <Button text="Add Reminder" tap="{{ saveReminder }}" 
+                    class="bg-blue-500 text-white p-4 m-2 rounded-lg" />
+        </StackLayout>
+    </ScrollView>
+</Page>
